@@ -3,12 +3,21 @@
 
 using System;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using Olo42.FileDataAccess.Contracts;
 
-namespace Olo42.FileDataAccess.SerializeBinary
+namespace Olo42.FileDataAccess
 {
-  public class BinarySerializingAccess<T> : IFileDataAccess<T>
+  public class FormatterDataAccess<T> : IFileDataAccess<T>
   {
+    private readonly IFormatter formatter;
+
+    public FormatterDataAccess(IFormatter formatter)
+    {
+      this.formatter = formatter;
+    }
+
     public FileInfo[] GetFiles(DirectoryInfo directoryInfo)
     {
       string[] fileNames = Directory.GetFiles(directoryInfo.FullName);
@@ -18,12 +27,18 @@ namespace Olo42.FileDataAccess.SerializeBinary
 
     public T Read(string path)
     {
-      throw new NotImplementedException();
+      using (var fs = new FileStream(path, FileMode.Open))
+      {
+        return (T)this.formatter.Deserialize(fs);
+      }
     }
 
     public void Write(string path, T obj)
     {
-      throw new NotImplementedException();
+      using (var fs = new FileStream(path, FileMode.OpenOrCreate))
+      {
+        this.formatter.Serialize(fs, obj);
+      }
     }
 
     private static FileInfo[] CreateFileInfos(string[] fileNames)

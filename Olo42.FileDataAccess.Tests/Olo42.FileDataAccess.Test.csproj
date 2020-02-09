@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Olo42.FileDataAccess.SerializeBinary\Olo42.FileDataAccess.csproj" />
+    <ProjectReference Include="..\Olo42.FileDataAccess\Olo42.FileDataAccess.csproj" />
   </ItemGroup>
 
 </Project>

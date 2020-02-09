@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Olo42.FileDataAccess.Contracts", "Olo42.FileDataAccess.Contracts\Olo42.FileDataAccess.Contracts.csproj", "{56EC2278-9183-4554-85AB-92B751148C31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Olo42.FileDataAccess", "Olo42.FileDataAccess.SerializeBinary\Olo42.FileDataAccess.csproj", "{E7CDE7CD-0A58-4E57-A202-1F46E37DEC08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Olo42.FileDataAccess", "Olo42.FileDataAccess\Olo42.FileDataAccess.csproj", "{E7CDE7CD-0A58-4E57-A202-1F46E37DEC08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Olo42.FileDataAccess.Test", "Olo42.FileDataAccess.SerializeBinary.Tests\Olo42.FileDataAccess.Test.csproj", "{7985F2C2-BD6B-4552-8629-265AE63D418F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Olo42.FileDataAccess.Test", "Olo42.FileDataAccess.Tests\Olo42.FileDataAccess.Test.csproj", "{7985F2C2-BD6B-4552-8629-265AE63D418F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

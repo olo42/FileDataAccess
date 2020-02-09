@@ -3,16 +3,17 @@
 
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using NUnit.Framework;
-using Olo42.FileDataAccess.SerializeBinary;
 
-namespace Olo42.FileDataAccess.Test.BinarySerializingAccess
+namespace Olo42.FileDataAccess.Test.FormatterDataAccess
 {
   [TestFixture]
   internal class GetFilesTests
   {
     private const string TEST_DIR_PATH = "./testdir";
-    private BinarySerializingAccess<object> dataAccess;
+    private FormatterDataAccess<object> dataAccess;
 
     [Test]
     public void GetFiles()
@@ -58,7 +59,8 @@ namespace Olo42.FileDataAccess.Test.BinarySerializingAccess
     public void SetUp()
     {
       Directory.CreateDirectory(TEST_DIR_PATH);
-      this.dataAccess = new BinarySerializingAccess<object>();
+      IFormatter formatter = new BinaryFormatter();
+      this.dataAccess = new FormatterDataAccess<object>(formatter);
     }
 
     [TearDown]
