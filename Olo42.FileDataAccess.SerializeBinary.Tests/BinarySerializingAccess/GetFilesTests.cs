@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Oliver Appel. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
@@ -35,7 +34,7 @@ namespace Olo42.FileDataAccess.Test.BinarySerializingAccess
 
       // Act
       var directoryInfo = new DirectoryInfo(testDirPath);
-      IEnumerable<FileInfo> files = this.dataAccess.GetFiles(directoryInfo);
+      FileInfo[] files = this.dataAccess.GetFiles(directoryInfo);
 
       // Assert
       Assert.That(files.First().Name, Is.EqualTo("test_file_1.txt"));
@@ -50,7 +49,7 @@ namespace Olo42.FileDataAccess.Test.BinarySerializingAccess
 
       // Act
       var directoryInfo = new DirectoryInfo(testDirPath);
-      IEnumerable<FileInfo> files = this.dataAccess.GetFiles(directoryInfo);
+      FileInfo[] files = this.dataAccess.GetFiles(directoryInfo);
 
       // Assert
       Assert.That(files, Is.Not.Null);
