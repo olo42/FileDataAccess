@@ -11,14 +11,13 @@ namespace Olo42.FileDataAccess.Test.BinarySerializingAccess
   [TestFixture]
   internal class GetFilesTests
   {
-    private const string testDirPath = "./testdir";
+    private const string TEST_DIR_PATH = "./testdir";
     private BinarySerializingAccess<object> dataAccess;
 
     [Test]
     public void GetFiles()
     {
       // Arrange
-      var access = new BinarySerializingAccess<object>();
 
       // Act // Assert
       DirectoryInfo directoryInfo = new DirectoryInfo("./");
@@ -33,7 +32,7 @@ namespace Olo42.FileDataAccess.Test.BinarySerializingAccess
       this.CreateFile("test_file_2.txt");
 
       // Act
-      var directoryInfo = new DirectoryInfo(testDirPath);
+      var directoryInfo = new DirectoryInfo(TEST_DIR_PATH);
       FileInfo[] files = this.dataAccess.GetFiles(directoryInfo);
 
       // Assert
@@ -48,7 +47,7 @@ namespace Olo42.FileDataAccess.Test.BinarySerializingAccess
       this.CreateFile("testFile");
 
       // Act
-      var directoryInfo = new DirectoryInfo(testDirPath);
+      var directoryInfo = new DirectoryInfo(TEST_DIR_PATH);
       FileInfo[] files = this.dataAccess.GetFiles(directoryInfo);
 
       // Assert
@@ -58,19 +57,19 @@ namespace Olo42.FileDataAccess.Test.BinarySerializingAccess
     [SetUp]
     public void SetUp()
     {
-      Directory.CreateDirectory(testDirPath);
+      Directory.CreateDirectory(TEST_DIR_PATH);
       this.dataAccess = new BinarySerializingAccess<object>();
     }
 
     [TearDown]
     public void TearDown()
     {
-      Directory.Delete(GetFilesTests.testDirPath, true);
+      Directory.Delete(TEST_DIR_PATH, true);
     }
 
     private void CreateFile(string fileName)
     {
-      var filePath = Path.Combine(testDirPath, fileName);
+      var filePath = Path.Combine(TEST_DIR_PATH, fileName);
       File.Create(filePath).Close();
     }
   }
