@@ -13,7 +13,7 @@ namespace Olo42.FileDataAccess.Test.FormatterDataAccess
   internal class GetFilesTests
   {
     private const string TEST_DIR_PATH = "./testdir";
-    private FormatterDataAccess<object> dataAccess;
+    private FileDataAccess<object> dataAccess;
 
     [Test]
     public void GetFiles()
@@ -60,7 +60,7 @@ namespace Olo42.FileDataAccess.Test.FormatterDataAccess
     {
       Directory.CreateDirectory(TEST_DIR_PATH);
       IFormatter formatter = new BinaryFormatter();
-      this.dataAccess = new FormatterDataAccess<object>(formatter);
+      this.dataAccess = new FileDataAccess<object>(formatter);
     }
 
     [TearDown]

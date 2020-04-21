@@ -7,11 +7,11 @@ using Olo42.FileDataAccess.Contracts;
 
 namespace Olo42.FileDataAccess
 {
-  public class FormatterDataAccess<T> : IFileDataAccess<T>
+  public class FileDataAccess<T> : IFileDataAccess<T>
   {
     private readonly IFormatter formatter;
 
-    public FormatterDataAccess(IFormatter formatter)
+    public FileDataAccess(IFormatter formatter)
     {
       this.formatter = formatter;
     }

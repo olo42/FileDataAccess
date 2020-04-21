@@ -17,14 +17,14 @@ namespace Olo42.FileDataAccess.Test.FormatterDataAccess
     private readonly string testFilePath =
       Path.Combine(TEST_DIR_PATH, "testfile.dat");
 
-    private FormatterDataAccess<TestObj> dataAccess;
+    private FileDataAccess<TestObj> dataAccess;
 
     [SetUp]
     public void Setup()
     {
       Directory.CreateDirectory(TEST_DIR_PATH);
       IFormatter formatter = new BinaryFormatter();
-      this.dataAccess = new FormatterDataAccess<TestObj>(formatter);
+      this.dataAccess = new FileDataAccess<TestObj>(formatter);
     }
 
     [TearDown]
